@@ -6,14 +6,22 @@ Note: You may not engage in multiple transactions simultaneously (i.e., you must
 */
 
 
-function maxProfit(prices) {
-  let profit = 0;
+// function maxProfit(prices) {
+//   let profit = 0;
 
-  for (let i = 0; i < prices.length - 1; i++) {
+//   for (let i = 0; i < prices.length - 1; i++) {
+//     let diff = prices[i + 1] - prices[i];
+//     if (diff > 0) profit += diff;
+//   }
+//   return profit;
+// }
+
+function maxProfit(prices) {
+  return prices.reduce((profit, price, i) => {
     let diff = prices[i + 1] - prices[i];
     if (diff > 0) profit += diff;
-  }
-  return profit;
+    return profit;
+  }, 0);
 }
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4]));
